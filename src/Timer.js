@@ -1,14 +1,27 @@
-import React from 'react';
-import { Button } from 'react-bootstrap'
+/*
+-start
+-pause
+-change timer
+*/
 
+class Timer {
+    constructor(){
+        this.counter = 0;
+    }
 
-function Timer(props){
-    return (
-        <div>   
-            <p>{props.time.toString()}</p>
-            <Button onClick={props.onTimerClick} bsSize="xsmall" bsStyle="info">{props.btnName}</Button>
-        </div>
-    )
+    start(callback) {
+         this.timer = setInterval(callback, 1000)
+         console.log("started")
+    }
+
+    stop() {
+        clearInterval(this.timer)
+        console.log("finished")
+    }
+
+    changeActiveTimer() {
+
+    }
 }
 
-export default Timer
+export default Timer;
