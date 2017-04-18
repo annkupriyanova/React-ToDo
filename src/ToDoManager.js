@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ToDo from './ToDo'
-import Timer from './Timer'
 import { Button, Form, FormGroup, FormControl, Table } from 'react-bootstrap'
 import convertTimeFunction from './convertTimeFunction'
 const uuidV1 = require('uuid/v1');
