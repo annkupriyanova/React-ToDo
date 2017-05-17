@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Gifs = ({ urls = [], status = "" }) => {
+const Gifs = ({ urls, status }) => {
     const displayStatus = status.split(' ')[0] === "Error"? 
                         <p style={{color: 'red'}}>{status}</p> : <p>{status}</p>
     return (
