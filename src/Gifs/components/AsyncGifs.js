@@ -5,19 +5,19 @@ import Gifs from './Gifs'
 const AsyncGifs = (props) => {
     const {
         value, 
-        numberOfElemnts, 
+        elements, 
+        urls,
         status, 
-        urls, 
         inputChange, 
-        numberOfElemntsChange,
+        elementsChange,
         fetchGifs 
     } = props
 
     return (
         <div>
-            <Input value={value} numberOfElemnts={numberOfElemnts} 
-                inputChange={inputChange} numberOfElemntsChange={numberOfElemntsChange} 
-                submitClick={fetchGifs}/>
+            <Input value={value} elements={elements} 
+                inputChange={inputChange} elementsChange={elementsChange} 
+                fetchGifs={fetchGifs}/>
             <Gifs urls={urls} status={status} />
         </div>
     );

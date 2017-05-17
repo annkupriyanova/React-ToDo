@@ -1,12 +1,11 @@
 import React from 'react';
 
-const Gifs = (props) => {
-    const { urls, status } = props
-    //const displayStatus = status.split(' ')[0] === "Error"? 
-                        //<p style={{color: 'red'}}>{status}</p> : <p>{status}</p>
+const Gifs = ({ urls = [], status = "" }) => {
+    const displayStatus = status.split(' ')[0] === "Error"? 
+                        <p style={{color: 'red'}}>{status}</p> : <p>{status}</p>
     return (
         <div>
-            <p>{ status }</p> 
+            {displayStatus}
 
             <div className="flex">
                 { 

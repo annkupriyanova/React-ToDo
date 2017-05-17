@@ -26,13 +26,15 @@ const fetchGifsFailure = (error) => ({
     error
 })
 
-export const fetchGifs = (value, numberOfElements) => {
-    return function(dispatch){
-        dispatch(fetchGifsRequest(value))
+export const fetchGifs = () => {
+    return function(dispatch, getState){
+        const state = getState()
+        console.log(state)
+        dispatch(fetchGifsRequest(state.value))
         return axios.get('http://api.giphy.com/v1/gifs/search',{
                 params: {
-                    q: value,
-                    limit: numberOfElements,
+                    q: state.value,
+                    limit: state.elements,
                     api_key: 'dc6zaTOxFJmzC'
                 }
             })

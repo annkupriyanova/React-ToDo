@@ -4,23 +4,27 @@ import { createStore, applyMiddleware, compose } from "redux";
 import thunkMiddleware from "redux-thunk";
 import rootReducer from './reducers/rootReducer'
 import AsyncGifs from './components/AsyncGifs'
-import { inputChange, numberOfElemntsChange } from './actions/inputActions'
+import { inputChange, elementsChange } from './actions/inputActions'
 import { fetchGifs } from './actions/gifsActions'
 
 const mapStateToProps = state => ({
     value: state.value,
-    numberOfElemnts: state.numberOfElemnts,
-    status: state.status,
-    urls: state.urls
+    elements: state.elements,
+    urls: state.urls,
+    status: state.status   
 })
 
 const Container = connect(mapStateToProps, {
     inputChange,
-    numberOfElemntsChange,
+    elementsChange,
     fetchGifs
 })(AsyncGifs)
 
-const store = createStore(rootReducer, applyMiddleware(thunkMiddleware))
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunkMiddleware))
+);
 
 export default () => {
   return (
